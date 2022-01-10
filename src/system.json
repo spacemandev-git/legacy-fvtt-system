@@ -1,0 +1,41 @@
+{
+  "name": "legacy-fvtt-system",
+  "title": "legacy-fvtt-system",
+  "description": "",
+  "version": "This is auto replaced",
+  "author": "<your name>",
+  "authors": [
+    {
+      "name": "<your name>",
+      "email": "<optionally your e-mail address>",
+      "discord": "<optionally your discord username>"
+    }
+  ],
+  "minimumCoreVersion": "9.238",
+  "compatibleCoreVersion": "9",
+  "scripts": [],
+  "esmodules": ["module/legacy-fvtt-system.js"],
+  "styles": ["styles/legacy-fvtt-system.css"],
+  "packs": [],
+  "dependencies": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "socket": false,
+  "url": "This is auto replaced",
+  "manifest": "This is auto replaced",
+  "download": "This is auto replaced",
+  "license": "",
+  "readme": "",
+  "bugs": "",
+  "changelog": "",
+  "initiative": "",
+  "gridDistance": 1,
+  "gridUnits": "",
+  "primaryTokenAttribute": "",
+  "secondaryTokenAttribute": ""
+}
