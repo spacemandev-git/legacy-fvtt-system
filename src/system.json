@@ -3,12 +3,11 @@
   "title": "legacy-fvtt-system",
   "description": "",
   "version": "This is auto replaced",
-  "author": "<your name>",
+  "author": "spacemandev",
   "authors": [
     {
-      "name": "<your name>",
-      "email": "<optionally your e-mail address>",
-      "discord": "<optionally your discord username>"
+      "name": "Spacemandev#6256",
+      "discord": "Spacemandev#6256"
     }
   ],
   "minimumCoreVersion": "9.238",

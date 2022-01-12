@@ -50,5 +50,8 @@
   "lint-staged": {
     "*.(ts|js)": "eslint --fix",
     "*.(json|yml|css)": "prettier --write"
+  },
+  "dependencies": {
+    "@project-serum/anchor": "^0.20.1"
   }
 }

@@ -13,11 +13,12 @@
 // Import TypeScript modules
 import { registerSettings } from './settings';
 import { preloadTemplates } from './preloadTemplates';
+import * as anchor from '@project-serum/anchor';
 
 // Initialize system
 Hooks.once('init', async () => {
   console.log('legacy-fvtt-system | Initializing legacy-fvtt-system');
-
+  console.log(anchor.web3.SystemProgram.programId);
   // Assign custom classes and constants here
 
   // Register custom system settings
