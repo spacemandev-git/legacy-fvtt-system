@@ -1,0 +1,1 @@
+/Users/spacemandev/Projects/legacy/legacy-sol/target/types/legacy_sol.ts
