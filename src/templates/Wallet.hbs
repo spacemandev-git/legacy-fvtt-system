@@ -1,4 +1,10 @@
 <div>
     <p>Public Key: {{wallet}}</p>
     <p>Balance: {{balance}} SOL</p>
+    <button id="requestAirdropButton" onclick="game.chain.requestAirdrop(5); ui.notifications.info('airdrop requested')">Request Airdrop</button>
+    {{#if hand}}
+    <p>Player is initalized</p>
+    {{else}}
+    <button id="initPlayer" onclick="game.chain.initPlayer(); ui.notifications.info('player init')">Init Player</button>
+    {{/if}}
 </div>

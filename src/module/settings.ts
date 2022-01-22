@@ -1,7 +1,6 @@
-import { conn, g } from "./legacy-fvtt-system";
+import { g } from "./legacy-fvtt-system";
 import * as anchor from '@project-serum/anchor';
-import { bs58 } from "@project-serum/anchor/dist/cjs/utils/bytes";
-export const IDL = ("../assets/contract/legacy_sol.json");
+import {Chain} from './chain';
 export const system = "legacy-fvtt-system";
 
 export async function registerSettings(): Promise<void> {
@@ -29,12 +28,30 @@ export async function registerSettings(): Promise<void> {
     default: `systems/${system}/assets/contract/legacy_sol.json`
   })
 
+  g.settings.register(system, 'contract-address', {
+    name: "Contract Address",
+    config: true,
+    scope: 'world',
+    type: String,
+    default: `Cz4TVYSDxwobuiKdtZY8ejp3hWL7WfCbPNYGUqnNBVSe`
+  })
+
+  g.settings.register(system, 'gameacc', {
+    name: "Game Acc",
+    config: false,
+    scope: 'world',
+    type: String,
+    default: ""
+  })
+
+
   g.settings.registerMenu(system, "player-wallet-menu", {
     name: "Player Wallet", 
     label: "Info about your wallet",
     type: PlayerMenu,
     restricted: false
   })
+
 }
 
 class PlayerMenu extends FormApplication {
@@ -54,9 +71,9 @@ class PlayerMenu extends FormApplication {
 
   //@ts-ignore
   async getData(){
-    const _wallet:anchor.web3.Keypair =  anchor.web3.Keypair.fromSecretKey(bs58.decode(<string>game.user?.getFlag(system, 'wallet')));
-    const _balance = await conn.getBalance(_wallet.publicKey);
-
+    const _wallet:anchor.web3.Keypair = Chain.getUserWallet();
+    const _balance = await Chain.getUserBalance();
+    
     return {
       wallet: _wallet.publicKey.toString(),
       balance: (_balance/1e9)

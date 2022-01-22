@@ -16,6 +16,7 @@ import { preloadTemplates } from './preloadTemplates';
 import { UnitSheet } from './UnitSheet';
 import * as anchor from '@project-serum/anchor';
 import { bs58 } from '@project-serum/anchor/dist/cjs/utils/bytes';
+import {Chain} from './chain';
 
 declare global {
   interface LenientGlobalVariableTypes {
@@ -53,8 +54,7 @@ Hooks.once('setup', async () => {
 // When ready
 Hooks.once('ready', async () => {
   // Do anything once the system is ready
-
-  if(!g.user?.isGM && !g.user?.getFlag(system, 'wallet')){
+  if(!g.user?.getFlag(system, 'wallet')){
     new Dialog({
       title: "Generate a wallet",
       content: `
@@ -71,7 +71,7 @@ Hooks.once('ready', async () => {
             const wallet = anchor.web3.Keypair.generate();
             game.user?.setFlag(system, 'wallet', bs58.encode(wallet.secretKey));
             //Request airdrop for 5 SOL (1e9 lamports = 1 SOL)
-            await conn.requestAirdrop(wallet.publicKey, ((1e9)*5));
+            await conn.requestAirdrop(wallet.publicKey, ((1e9)*10));
           }
         }
       },
@@ -81,6 +81,7 @@ Hooks.once('ready', async () => {
 
   //@ts-ignore
   g['anchor'] = anchor;
+
 });
 
 // Add any additional hooks if necessary

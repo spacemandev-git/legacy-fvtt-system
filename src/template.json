@@ -1,17 +1,28 @@
 {
   "Actor": {
-    "types": ["unit"],
+    "types": ["unit", "unitmod"],
     "unit": {
-      "attributes": {
-        "power": 0,
-        "class": "Infantry",
-        "range": 1,
-        "mod_inf": 0,
-        "mod_armor": 0,
-        "mod_air": 0
-      }
+      "templates": ["unitactor"]
     },
-    "templates": {}
+    "unitmod": {
+      "templates": ["unitactor"]
+    },
+    "templates": {
+      "unitactor": {
+        "attributes": {
+          "name": "",
+          "power": 0,
+          "class": "Infantry",
+          "range": 1,
+          "recovery": 20,
+          "modInf": 0,
+          "modArmor": 0,
+          "modAir": 0,
+          "link": "",
+          "lastMoved": 0
+        }
+      }
+    }
   },
   "Item": {
     "types": [],
